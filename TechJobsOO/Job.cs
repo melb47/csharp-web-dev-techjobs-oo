@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+
 namespace TechJobsOO
 {
     public class Job
@@ -37,7 +39,54 @@ namespace TechJobsOO
         {
             return HashCode.Combine(Id);
         }
+        public override string ToString()
+        {
+            string result = "\n";
+            result += $"\nID: {Id}"; 
 
+            if (string.IsNullOrEmpty(Name))
+            {
+                result += "\nName: Data not available";
+            }
+            else
+            {
+                result += $"\nName: {Name}";
+            }
+            if (EmployerName is null || string.IsNullOrEmpty(EmployerName.ToString()))
+            {
+                result += "\nEmployer: Data not available";
+            }
+            else
+            {
+                result += $"\nEmployer: {EmployerName}";
+            }
+            if (EmployerLocation is null || string.IsNullOrEmpty(EmployerLocation.ToString()))
+            {
+                result += "\nLocation: Data not available";
+            }
+            else
+            {
+                result += $"\nLocation: {EmployerLocation}";
+            }
+            if (JobType is null || string.IsNullOrEmpty(JobType.ToString()))
+            {
+                result += "\nPosition Type: Data not available";
+            }
+            else
+            {
+                result += $"\nPosition Type: {JobType}";
+            }
+            if (JobCoreCompetency is null || string.IsNullOrEmpty(JobCoreCompetency.ToString()))
+            {
+                result += "\nCore Competency: Data not available";
+            }
+            else
+            {
+                result += $"\nCore Competency: {JobCoreCompetency}";
+            }
+            result += "\n";
+            return result;
+        }
         // TODO: Generate Equals() and GetHashCode() methods.
 
     }
